@@ -1,3 +1,4 @@
+import 'package:audio/resources/socket.dart';
 import 'package:audio/screens/create_room_scrren.dart';
 import 'package:audio/screens/join_room_scrren.dart';
 import 'package:audio/screens/main_menu_screen.dart';
@@ -5,6 +6,9 @@ import 'package:audio/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  final socketClient = SocketClient.instance;
+
+  socketClient.socket!.emit('createRoom', {'nickName': 'TestUser'});
   runApp(const MyApp());
 }
 

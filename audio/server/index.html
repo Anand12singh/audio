@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"
+        integrity="sha512-luMnTJZ7oEchNDZAtQhgjomP1eZefnl82ruTH/3Oj/Yu5qYtwL7+dVRccACS/Snp1lFXq188XFipHKYE75IaQQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Hello world</title>
+</head>
+ 
+<body>
+    <p>Hello worlds</p>
+ 
+ 
+    <script>
+        // Create a new socket
+ 
+        //define custom-namespace
+        //var socket = io('/custom-namesapce');
+ 
+        var socket = io();
+        // socket.on('AddCustomeEvent', (data) => {
+        //     document.write(data)
+        // })
+ 
+        //socket.emit('NewEventAdd', "Hey U done")
+ 
+        socket.on('AddNewUser', (data) => {
+            document.body.innerHTML = '';
+            document.write(data.message)
+        })
+    </script>
+</body>
+ 
+ 
+</html>

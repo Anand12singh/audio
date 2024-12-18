@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const playerSchema = mongoose.Schema({
+const playerSchema = new mongoose.Schema({
   nickName: {
     type: String,
     trim: true,

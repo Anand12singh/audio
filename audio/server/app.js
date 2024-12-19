@@ -99,6 +99,19 @@ io.on("connection", (socket) => {
     }
   });
 
+  socket.on("tap", async ({ index, roomId }) => {
+    try {
+      let room = await Room.findById(roomId);
+
+      io.to(roomId).emit("tap", {
+        index,
+        roomId
+      });
+    } catch (error) {
+      console.log(`Error In ${error}`);
+    }
+  });
+
   // Handle client disconnection
   socket.on("disconnect", () => {
     console.log(`Client disconnected: ${socket.id}`);

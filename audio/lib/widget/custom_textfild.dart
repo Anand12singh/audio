@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 
 class CustomTextfild extends StatelessWidget {
   final TextEditingController controller;
+  final bool isreadOnly;
   final String hintText;
   const CustomTextfild(
-      {super.key, required this.controller, required this.hintText});
+      {super.key,
+      required this.controller,
+      required this.hintText,
+      this.isreadOnly = false});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +19,7 @@ class CustomTextfild extends StatelessWidget {
       ]),
       child: TextField(
         controller: controller,
+        readOnly: isreadOnly,
         decoration: InputDecoration(
           fillColor: bgColor,
           filled: true,

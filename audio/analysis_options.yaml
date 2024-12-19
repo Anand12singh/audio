@@ -10,11 +10,16 @@
 analyzer:
   errors:
     sort_child_properties_last: ignore
-    prefer_const_literals_to_create_immutables: ignore ignore
+    prefer_const_literals_to_create_immutables: ignore ignore ignore ignore
     unused_local_variable: ignore
     library_prefixes: ignore
     avoid_print: ignore ignore
     no_wildcard_variable_uses: ignore
+    prefer_final_fields: ignore ignore ignore ignore ignore
+    unnecessary_brace_in_string_interps: ignore
+    unused_field: ignore
+    prefer_const_constructors: ignore
+    must_be_immutable: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

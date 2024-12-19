@@ -20,6 +20,16 @@ class CreateRoomScrren extends StatefulWidget {
 class _CreateRoomScrrenState extends State<CreateRoomScrren> {
   final TextEditingController neackName = TextEditingController();
   final SocketMethods _socketMethods = SocketMethods();
+
+  @override
+  void initState() {
+    print(' _socketMethods.createRoomSuccessListener');
+    _socketMethods.createRoomSuccessListener(context);
+
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   void dispose() {
     neackName;

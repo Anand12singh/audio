@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:audio/responsive/responsive.dart';
 import 'package:audio/widget/custom_button.dart';
 import 'package:audio/widget/custom_text.dart';
 import 'package:audio/widget/custom_textfild.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
+import '../resources/socket_methods.dart';
 
 class JoinRoomScrren extends StatefulWidget {
   static String routeName = '/join-room';
@@ -17,6 +21,16 @@ class JoinRoomScrren extends StatefulWidget {
 class _JoinRoomScrrenState extends State<JoinRoomScrren> {
   final TextEditingController _neackName = TextEditingController();
   final TextEditingController gameId = TextEditingController();
+  final SocketMethods _socketMethods = SocketMethods();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _socketMethods.joinRoomSuccessListener(context);
+    _socketMethods.errorListener(context);
+    _socketMethods.updateplayerstateListner(context);
+  }
 
   @override
   void dispose() {
@@ -46,7 +60,13 @@ class _JoinRoomScrrenState extends State<JoinRoomScrren> {
               CustomTextfild(
                   controller: gameId, hintText: "Enter Your Game Id"),
               const Gap(20),
-              CustomButton(onTap: () {}, buttName: "Join")
+              CustomButton(
+                  onTap: () async {
+                    log(gameId.text);
+                    _socketMethods.joinRoom(
+                        _neackName.text.trim(), gameId.text.trim());
+                  },
+                  buttName: "Join")
             ],
           ),
         ),

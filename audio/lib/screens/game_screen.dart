@@ -23,6 +23,8 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     socketMethods.updateroomListener(context);
     socketMethods.updateplayerstateListner(context);
+    socketMethods.pointIncrease(context);
+    socketMethods.endGameLisntener(context);
 
     // TODO: implement initState
     super.initState();
@@ -42,7 +44,12 @@ class _GameScreenState extends State<GameScreen> {
             : SafeArea(
                 child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [Scorebord(), Ticktockbord()],
+                children: [
+                  const Scorebord(),
+                  const Ticktockbord(),
+                  Text(
+                      '${roomDataprovider.roomData['turn']['nickName']}\'s turn')
+                ],
               )));
   }
 }

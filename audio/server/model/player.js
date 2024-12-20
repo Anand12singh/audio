@@ -4,9 +4,9 @@ const playerSchema = new mongoose.Schema({
   nickName: {
     type: String,
     trim: true,
-    socketId: {
-      type: String,
-    },
+  },
+  socketId: {
+    type: String,
   },
   points: {
     type: Number,

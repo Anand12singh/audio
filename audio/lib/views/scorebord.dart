@@ -12,26 +12,30 @@ class Scorebord extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
               Text(
-                "Nickname player 1: ${roomDataprovider.player1.nickName}",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                "Nickname : ${roomDataprovider.player1.nickName}",
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
               ),
-              Text("Point player 1: ${roomDataprovider.player1.points}",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              Text("Point : ${roomDataprovider.player1.points}",
+                  style: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.bold)),
             ],
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           child: Column(
             children: [
-              Text("Nickname player 2: ${roomDataprovider.player2.nickName}",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              Text("Point player 2: ${roomDataprovider.player2.points}",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              Text("Nickname : ${roomDataprovider.player2.nickName}",
+                  style: const TextStyle(
+                      fontSize: 12, fontWeight: FontWeight.bold)),
+              Text("Point : ${roomDataprovider.player2.points}",
+                  style: const TextStyle(
+                      fontSize: 14, fontWeight: FontWeight.bold)),
             ],
           ),
         )
